@@ -1,0 +1,28 @@
+body{
+}
+#container{
+	min-height:100%;
+	position:relative;
+}
+#footer{
+	position:absolute;
+	background-color:rgba(100,100,100,0.2);
+	width:60%;
+	padding-left:20%;
+	padding-right:20%;
+	bottom:0;
+}
+#footer>div{
+	vertical-align:top;
+	text-align:center;
+	display:inline-block;
+	width:32%;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+#footer a{
+	color:white;
+}
+#footer a:visited{
+	color:white;
+}

@@ -1,25 +1,40 @@
 <!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<script src="./register.js"></script>
-<title>Register</title>
+	<meta charset=utf-8>
+	<title>Register</title>
+	<script src=./main.js></script>
+	<script src=./header.js></script>
+	<script src=./page.js></script>
+	<script src=./register.js></script>
+	<script src=./footer.js></script>
 </head>
 <body>
-<p>register</p>
-Username:
-<input type='text' id='usrn' name='username'>
-<input type='button' id='chk' name='check' value='Check'><br>
-<span id='vld_usrn' name='valid_username'>
-    Please press check to check whether the username is used.<br>
-</span>
-Nickname:
-<input type='text' id='nckn' name='nickname'><br>
-Password:
-<input type='password' id='pwd' name='password'><br>
-Confirm Password:
-<input type='password' id='rpwd' name='repassword'><br>
-<input type='button' id='rgst' name='register' value='Register'>
-<span id='stt_rgst' name='status_register'></span>
+<div id=container>
+<div id=header></div>
+<div id=content>
+	<h1>Register</h1>
+	Username:
+	<input type=text id=username placeholder=username>
+	<input type=button id=check value=Check><br>
+	<span id=valid_username></span><br>
+	<span id=check_username>
+		Please press check to check whether the username is used.
+	</span><br>
+	Nickname:
+	<input type=text id=displayname placeholder=display-name><br>
+	<span id=valid_displayname></span><br>
+	Password:
+	<input type=password id=password placeholder=password>
+	<span id=valid_password> </span><br><br>
+	Confirm Password:
+	<input type=password id=repassword placeholder=confirm-password>
+	<span id=valid_repassword> </span><br><br>
+	<input type=button id=register value=Register>
+	<span id=status_register ></span>
+</div>
+<div id=footer></div>
+</div>
 </body>
 </html>

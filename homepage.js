@@ -4,6 +4,6 @@ var fs=require('fs')
 module.exports=function(pool,req,res,usr){
     console.log('homepage')
     res.writeHead(200,{'Content-Type':'text/html'})
-    fs.createReadStream('./data/homepage.html').pipe(res)
+    fs.createReadStream('./data/home.html').pipe(res)
 }
 

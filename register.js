@@ -3,7 +3,7 @@ var crypto=require('crypto')
 var url=require('url')
 var fs=require('fs')
 function response(res,val){
-    res.writeHead('200',{'Content-Type':'text/plain'})
+    res.writeHead(200,{'Content-Type':'text/plain'})
     res.write(val)
     res.end()
 }
@@ -27,7 +27,6 @@ function register(pool,req,res){
         pool.query(
             'INSERT INTO blog_system.user SET ?',{
                 username:query.username,
-                password:'',
                 nickname:query.nickname,
                 userkey:'key'
             },function(err,rsl){

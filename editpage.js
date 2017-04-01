@@ -1,24 +1,27 @@
 var fs=require('fs')
+var error=require('./errormodule')
 module.exports=function(pool,req,res){
     var array_data=[]
-    req.on('data',function(data){
+    /*req.on('data',function(data){
         array_data.push(data)
-    })
+    })*/
+    req.on('data',[].push.bind(array_data))
     req.on('end',function(){
         var data=Buffer.concat(array_data).toString()
         if(data==='')return fs.createReadStream('./data/editpage.html').pipe(res)
-        data=JSON.parse(data)
+	try{
+	    data=JSON.parse((data))
+	}catch(e){return error(400,res)}
         pool.query(
             'INSERT INTO blog_system.article SET ?',{
                 title:data.ttl,
                 content:data.ctt,
-                org:data.id,
+                org:data.org,
                 pub:data.pub
             },
             function(){
                 res.end()
             }
-
         )
     })
 }

@@ -1,18 +1,28 @@
 <!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html"; charset="uft-8">
-<script src="./login.js"></script>
-<script src="./top.js"></script>
-<title>Login</title>
+	<meta charset=utf-8>
+	<title>Login</title>
+	<script src=./main.js></script>
+	<script src=./header.js></script>
+	<script src=./page.js></script>
+	<script src="./login.js"></script>
+	<script src=./footer.js></script>
 </head>
 <body>
-<p>login</p>
-<form method='get' name='logindata'>
-Username: <input type='text' id='usrn' name='username'><br>
-Password: <input type='password' id='pwd' name='password'><br>
-<input type='button' id='lgn' name='status_login' value='Login'>
-<span id='stt_lgn' name='status_login'>
-</form>
+<div id=container>
+<div id=header></div>
+<div id=content>
+	<h1>Login</h1>
+	Username:
+	<input type=text id=username name=username placeholder=username><br><br>
+	Password:
+	<input type=password id=password name=password placeholder=password><br><br>
+	<input type=button id=login name=login value=Login>
+	<span id=status_login name=status_login></span>
+</div>
+<div id=footer></div>
+</div>
 </body>
 </html>

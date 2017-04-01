@@ -10,29 +10,27 @@ window.addEventListener('load',function(event){
         req.open(
             'POST',
             './editpage'
-        )
-		var body_req={}
-		body_req.ttl=ttl.value;
-		body_req.ctt=ctt.value;
-		body_req.pub=(pub.checked)?'True':'False';
-		body_req.org=id.value;
+            )
+        var body_req={}
+        body_req.ttl=ttl.value;
+        body_req.ctt=ctt.value;
+        body_req.pub=(pub.checked)?'True':'False';
+        body_req.org=id.value;
 
-        req.send(JSON.stringify(body_req))
+        req.send(encodeURIComponent(JSON.stringify(body_req)))
         req.onreadystatechange=function(){
-            if(req.readyState==3)
-                stt_rgst.innerHTML='Loading<br>'
-            if(req.readyState==4){
-                if(req.status=='200'){
-                    if(req.responseText=='0'){
-                        stt_edt.style.color='green'
-                        stt_edt.innerHTML='Successfully edited.<br>'
-                    }
-                }
-                else{
-                    stt_edt.style.color='red'
-                    stt_edt.innerHTML='An error occurs, please try again.<br>'
-                }
-            }
+        if(req.readyState==3)
+        stt_rgst.innerHTML='Loading<br>'
+        if(req.readyState==4){
+        if(req.status=='200'){
+        stt_edt.style.color='green'
+        stt_edt.innerHTML='Successfully edited.<br>'
+        }
+        else{
+          stt_edt.style.color='red'
+            stt_edt.innerHTML='An error occurs, please try again.<br>'
+        }
+        }
         }
     })
 })
