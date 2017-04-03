@@ -7,7 +7,8 @@ module.exports=function(pool,req,res){
     })*/
     req.on('data',[].push.bind(array_data))
     req.on('end',function(){
-        var data=Buffer.concat(array_data).toString()
+        var data=decodeURIComponent(Buffer.concat(array_data).toString())
+        console.log("Data:"+data)
         if(data==='')return fs.createReadStream('./data/editpage.html').pipe(res)
 	try{
 	    data=JSON.parse((data))
