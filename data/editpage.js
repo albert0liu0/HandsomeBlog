@@ -10,7 +10,7 @@ window.addEventListener('load',function(event){
         req.open(
             'POST',
             './editpage'
-            )
+        )
         var body_req={}
         body_req.ttl=ttl.value;
         body_req.ctt=ctt.value;
@@ -19,18 +19,18 @@ window.addEventListener('load',function(event){
 
         req.send(encodeURIComponent(JSON.stringify(body_req)))
         req.onreadystatechange=function(){
-        if(req.readyState==3)
-        stt_rgst.innerHTML='Loading<br>'
-        if(req.readyState==4){
-        if(req.status=='200'){
-        stt_edt.style.color='green'
-        stt_edt.innerHTML='Successfully edited.<br>'
-        }
-        else{
-          stt_edt.style.color='red'
-            stt_edt.innerHTML='An error occurs, please try again.<br>'
-        }
-        }
+            if(req.readyState==3) stt_edt.innerHTML='Loading<br>'
+            if(req.readyState==4){
+                if(req.status=='200'){
+                    stt_edt.style.color='green'
+                    stt_edt.innerHTML='Successfully edited.<br>'
+                }
+                else{
+                    console.log(req.status)
+                    stt_edt.style.color='red'
+                    stt_edt.innerHTML='An error occurs, please try again.<br>'
+                }
+            }
         }
     })
 })
