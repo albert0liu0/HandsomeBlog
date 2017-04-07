@@ -7,7 +7,9 @@ var router=require('./pagemodule')
 var pool_article=require('./dbconnecter.js')
 var error=require('./errormodule.js')
 var srv=http.createServer(function(req,res){
-    loginCookie(pool_article,req,function(usr){
+    loginCookie(pool_article,req,function(err,usr){
+        if(err)
+            return console.log(err)
         var pathname=url.parse(req.url).pathname
         console.log("Request for " + pathname + " received.");
         if(router[pathname]!==undefined)

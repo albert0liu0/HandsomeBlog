@@ -5,18 +5,18 @@ module.exports=function(pool,req,callback){
         'SELECT * FROM blog_system.user WHERE ?',
         {id:cookie.id},
         function(err,row){
-            if(err)return err
+            if(err)return callback(err)
             row=row[0]
             console.log(cookie.id)
             console.log(crypto.createHash('sha256').update(''+cookie.pwd+cookie.id).digest('hex'))
             console.log(row)
             if(row&&crypto.createHash('sha256').update(''+cookie.pwd+cookie.id).digest('hex')===row.password){
                 console.log(cookie.id)
-                callback(cookie.id)
+                callback(null,cookie.id)
             }
             else{
                 console.log(0)
-                callback(0)
+                callback(null,0)
             }
         }
     )
